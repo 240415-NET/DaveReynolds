@@ -4,7 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        int i = 1;
+        /* created Thursday 4/18/2024
+		int i = 1;
 		while (i<101)
 		{
 			if(i%3==0 && i%5 ==0)
@@ -21,6 +22,9 @@ class Program
 			}
 			else Console.WriteLine(i);
 			i+= 1;
-		}
+			
+		}*/
+		//created Friday 4/19/2024
+		
     }
 }
