@@ -6,21 +6,22 @@ namespace Project1.Controllers;
 
 public class UserController
 {
+    public static IUserStorageRepo _userData = new JSONUserStorage();
     public static void CreateUser(string userName)
     {
         User newUser = new User(userName);
         //new user is passed to data handler to save to Json file
-        UserStorage.StoreUser(newUser);
+        _userData.StoreUser(newUser);
         Console.WriteLine("New User------");
         Console.WriteLine($"User ID: {newUser.userId}");
         Console.WriteLine($"User name: {newUser.name}");
-    
+
     }
 
-    
+
     public static bool UserExsists(string userName)
     {
-        if (UserStorage.FindUser(userName) == null)
+        if (_userData.FindUser(userName) == null)
         {
             return false;
         }
@@ -28,6 +29,10 @@ public class UserController
 
     }
 
-    
+    public static User UserLogin(string userName)
+    {
+        return _userData.FindUser(userName);
+    }
+
 
 }

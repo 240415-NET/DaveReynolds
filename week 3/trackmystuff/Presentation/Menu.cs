@@ -99,8 +99,11 @@ public class Menu
 
     public static void UserSignin()
     {
+        string userInput="";
         Console.WriteLine("enter User Name:");
-        User SignedInUser = UserStorage.FindUser(Console.ReadLine().Trim());
+        userInput = Console.ReadLine().Trim();
+        User SignedInUser = new();
+        SignedInUser = UserController.FindUserControl(userInput);
         if (SignedInUser !=null)
         {
         Console.WriteLine($"User ID: {SignedInUser.userId}");

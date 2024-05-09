@@ -1,12 +1,13 @@
 using System.Text.Json;
 using trackmystuff.Models;
+using trackmystuff.Data;
 
 namespace trackmystuff.Data;
 
-public class UserStorage
+public class JSONUserStorage : IUserStorageRepo
 {
     public static readonly string filePath = "UsersFile.Json";
-    public static void StoreUser(User user)
+    public void StoreUser(User user)
     {
             // file paths begin at root directory of application
         //string filePath = "UsersFile.Json";
@@ -50,7 +51,7 @@ public class UserStorage
         //if it doesn't create file and store object
     }
 
-    public static User FindUser(string userNameToFind) 
+    public User FindUser(string userNameToFind) 
     {
             //user object to store user if found, otherwise null
             User foundUser = new User();

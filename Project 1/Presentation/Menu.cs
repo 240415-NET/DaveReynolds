@@ -104,12 +104,13 @@ public class Menu
             return;
         }
         
-        User signedInUser = UserStorage.FindUser(userInput);
+        User signedInUser = UserController.UserLogin(userInput);
         if (signedInUser !=null)
         {
             Console.WriteLine($"User Name: {signedInUser.name}");
             Console.WriteLine($"User ID: {signedInUser.userId}");
 
+            CardMenu(signedInUser);
             //eventually go to a sub menu with options
             //1. Add cards
             //2. Remove cards
@@ -134,4 +135,66 @@ public class Menu
 
     
     }
+    public static void CardMenu(User signedInUser)
+    {
+
+        int userChoice = 0;
+        bool validInput = true;
+        bool exit = false;
+        
+        while(!exit)
+        {
+        Console.WriteLine($"{signedInUser.name}, what would you like to do?");
+        Console.WriteLine("1. Add Cards");
+        Console.WriteLine("2. Remove Cards");
+        Console.WriteLine("3. View Cards");
+        Console.WriteLine("4. Trade Cards");
+        Console.WriteLine("5. Go Back");
+               
+            do
+            {
+        
+                try
+                {
+                    userChoice = Convert.ToInt32(Console.ReadLine());
+                    validInput = true;
+                    switch(userChoice)
+                    {
+                        case 1:
+                        CardInput.CreateCardMenu(signedInUser);
+                        break;
+                        case 2:
+                         Console.WriteLine("Remove cards");
+                        break;
+                        case 3:
+                         Console.WriteLine("View cards");
+                        break;
+                        case 4:
+                         Console.WriteLine("Trade cards");
+                        break;
+
+                        case 5:
+                        exit = true;
+                        break;
+                        default:
+                        Console.WriteLine("Try another number");
+                        validInput = false;
+                        break;
+
+                    }
+                }
+                catch(Exception ex)
+                {
+                    validInput = false;
+
+                    //Console.WriteLine(ex.Message);
+                    //Console.WriteLine(ex.StackTrace);
+                    Console.WriteLine("Please enter valid choice");
+                }
+            }while(!validInput);
+        }
+
+       }
+       
 }
+    

@@ -3,13 +3,14 @@ using Project1.Models;
 
 namespace Project1.Data;
 
-public class UserStorage
+public class JSONUserStorage : IUserStorageRepo
 {
-        public static readonly string filePath = "UsersFile.Json";
-    public static void StoreUser(User user)
+
+    public static readonly string filePath = "UsersFile.Json";
+    public void StoreUser(User user)
     {
         //file paths begin in root directory of application
-        
+
 
         if (File.Exists(filePath))//if json file exsists
         {
@@ -25,7 +26,7 @@ public class UserStorage
             File.WriteAllText(filePath, exsistingUserString);
 
         }
-        else if(!File.Exists(filePath))//first time the program is run
+        else if (!File.Exists(filePath))//first time the program is run
         {
             //create List of User objects
             List<User> initialUserList = new List<User>();
@@ -34,11 +35,11 @@ public class UserStorage
             //convert list to text
             string jsonUsersString = JsonSerializer.Serialize(initialUserList);
             //write that text to a Json file with the file name declared above
-            File.WriteAllText(filePath,jsonUsersString);
+            File.WriteAllText(filePath, jsonUsersString);
         }
-    
+
     }
-    public static User FindUser(String userNameToFind)
+    public User FindUser(String userNameToFind)
     {
         User foundUser = new User();
 
