@@ -1,0 +1,39 @@
+{
+    "Energy": [
+        {
+            "elementalType": "fire",
+            "owner": "bob",
+            "cardType": "Energy",
+            "artType": "Holo",
+            "value": 0
+        }
+    ],
+    "Monster": [
+        {
+            "name": "monster",
+            "rarity": "R",
+            "owner": "bob",
+            "cardType": "Monster",
+            "artType": "normal",
+            "value": 5
+        }
+    ],
+    "Item": [
+        {
+            "name": "name",
+            "rarity": "C",
+            "owner": "bob",
+            "cardType": "Trainer/Item",
+            "artType": "normal",
+            "value": 5
+        },
+        {
+            "name": "name",
+            "rarity": "R",
+            "owner": "bob",
+            "cardType": "Trainer/Item",
+            "artType": "Holo",
+            "value": 7
+        }
+    ]
+}

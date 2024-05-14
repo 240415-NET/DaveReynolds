@@ -1,6 +1,6 @@
 namespace Project1.Models;
 
-public class Monster : Object
+public class Monster : Item
 {
     string elementalType{get; set;}
 

@@ -12,40 +12,40 @@ public class Menu
         int userChoice = 0;
         bool validInput = true;
         bool exit = false;
-        
-        while(!exit)
+
+        while (!exit)
         {
             Console.WriteLine("Welcome Please Select from Below:");
             Console.WriteLine("1. New User");
             Console.WriteLine("2. Exsisting User");
             Console.WriteLine("3. Exit");
-                
+
             do
             {
-        
+
                 try
                 {
                     userChoice = Convert.ToInt32(Console.ReadLine());
                     validInput = true;
-                    switch(userChoice)
+                    switch (userChoice)
                     {
                         case 1:
-                        CreateUserMenu();
-                        break;
+                            CreateUserMenu();
+                            break;
                         case 2:
-                        UserSignin();
-                        break;
+                            UserSignin();
+                            break;
                         case 3:
-                        exit = true;
-                        break;
+                            exit = true;
+                            break;
                         default:
-                        Console.WriteLine("Try another number");
-                        validInput = false;
-                        break;
+                            Console.WriteLine("Try another number");
+                            validInput = false;
+                            break;
 
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     validInput = false;
 
@@ -53,7 +53,7 @@ public class Menu
                     //Console.WriteLine(ex.StackTrace);
                     Console.WriteLine("Please enter valid choice");
                 }
-            }while(!validInput);
+            } while (!validInput);
         }
     }
     public static void CreateUserMenu()
@@ -65,20 +65,20 @@ public class Menu
         {
             Console.WriteLine("Enter Name or Q to go back: ");
             userInput = Console.ReadLine().Trim();
-            
-            if(userInput.ToLower() == "q")
-                {
+
+            if (userInput.ToLower() == "q")
+            {
                 Console.Clear();
                 return;
-                }
-            
-            
+            }
+
+
             if (String.IsNullOrEmpty(userInput))
             {
                 validInput = false;
                 Console.WriteLine("Enter a value");
             }
-            else if(UserController.UserExsists(userInput))
+            else if (UserController.UserExsists(userInput))
             {
                 Console.WriteLine("Username exsists, try again");
                 validInput = false;
@@ -89,7 +89,7 @@ public class Menu
                 Console.WriteLine("Profile created");
                 validInput = true;
             }
-        }while (!validInput);
+        } while (!validInput);
     }
 
     public static void UserSignin()
@@ -98,14 +98,14 @@ public class Menu
         Console.WriteLine("Enter Username or Q to go back: ");
         string userInput = Console.ReadLine().Trim();
 
-        if(userInput.ToLower() == "q")
+        if (userInput.ToLower() == "q")
         {
             Console.Clear();
             return;
         }
-        
+
         User signedInUser = UserController.UserLogin(userInput);
-        if (signedInUser !=null)
+        if (signedInUser != null)
         {
             Console.WriteLine($"User Name: {signedInUser.name}");
             Console.WriteLine($"User ID: {signedInUser.userId}");
@@ -116,24 +116,24 @@ public class Menu
             //2. Remove cards
             //3. view cards
             //4. trade cards?
-            
+
         }
         else
         {
             Console.WriteLine("User not found! Do you need to create a new user?");
-            userInput =  Console.ReadLine().Trim();
-            if (userInput.ToLower() == "yes" || userInput.ToLower() =="y")
+            userInput = Console.ReadLine().Trim();
+            if (userInput.ToLower() == "yes" || userInput.ToLower() == "y")
             {
                 Menu.CreateUserMenu();
             }
             else
             {
-                Console.WriteLine("User not found returning to main menu");            
+                Console.WriteLine("User not found returning to main menu");
             }
-        
+
         }
 
-    
+
     }
     public static void CardMenu(User signedInUser)
     {
@@ -141,49 +141,49 @@ public class Menu
         int userChoice = 0;
         bool validInput = true;
         bool exit = false;
-        
-        while(!exit)
+
+        while (!exit)
         {
-        Console.WriteLine($"{signedInUser.name}, what would you like to do?");
-        Console.WriteLine("1. Add Cards");
-        Console.WriteLine("2. Remove Cards");
-        Console.WriteLine("3. View Cards");
-        Console.WriteLine("4. Trade Cards");
-        Console.WriteLine("5. Go Back");
-               
+            Console.WriteLine($"{signedInUser.name}, what would you like to do?");
+            Console.WriteLine("1. Add Cards");
+            Console.WriteLine("2. Remove Cards");
+            Console.WriteLine("3. View Cards");
+            Console.WriteLine("4. Trade Cards");
+            Console.WriteLine("5. Go Back");
+
             do
             {
-        
+
                 try
                 {
                     userChoice = Convert.ToInt32(Console.ReadLine());
                     validInput = true;
-                    switch(userChoice)
+                    switch (userChoice)
                     {
                         case 1:
-                        CardInput.CreateCardMenu(signedInUser);
-                        break;
+                            CardView.CardViewMainMenu(signedInUser);
+                            break;
                         case 2:
-                         Console.WriteLine("Remove cards");
-                        break;
+                            Console.WriteLine("Remove cards");
+                            break;
                         case 3:
-                         Console.WriteLine("View cards");
-                        break;
+                            Console.WriteLine("View cards");
+                            break;
                         case 4:
-                         Console.WriteLine("Trade cards");
-                        break;
+                            Console.WriteLine("Trade cards");
+                            break;
 
                         case 5:
-                        exit = true;
-                        break;
+                            exit = true;
+                            break;
                         default:
-                        Console.WriteLine("Try another number");
-                        validInput = false;
-                        break;
+                            Console.WriteLine("Try another number");
+                            validInput = false;
+                            break;
 
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     validInput = false;
 
@@ -191,10 +191,9 @@ public class Menu
                     //Console.WriteLine(ex.StackTrace);
                     Console.WriteLine("Please enter valid choice");
                 }
-            }while(!validInput);
+            } while (!validInput);
         }
 
-       }
-       
+    }
+
 }
-    
