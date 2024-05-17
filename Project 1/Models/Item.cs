@@ -13,5 +13,9 @@ public class Item : Card
         rarity = _rarity;
 
     }
+    public override string ToString()
+    {
+        return $"Owner: {owner}\nType: {cardType}\nArt Type: {artType}\nValue: {value}\nCard Name: {name}\nRarity: {rarity}";
+    }
 
 }

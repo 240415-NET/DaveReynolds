@@ -86,7 +86,8 @@ public class Menu
             else
             {
                 UserController.CreateUser(userInput);
-                Console.WriteLine("Profile created");
+                Console.WriteLine("Profile created \nPress any key");
+                Console.ReadLine();
                 validInput = true;
             }
         } while (!validInput);
@@ -167,7 +168,8 @@ public class Menu
                             Console.WriteLine("Remove cards");
                             break;
                         case 3:
-                            Console.WriteLine("View cards");
+                            CardView.CardViewMainMenu(signedInUser);
+                            
                             break;
                         case 4:
                             Console.WriteLine("Trade cards");
