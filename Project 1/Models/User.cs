@@ -9,7 +9,7 @@ public class User
 
     public User(string _name)
     {
-        userId = new Random().Next(1000, 9999);
+        userId = new Random().Next(10000, 99999);
         name = _name;
     }
 

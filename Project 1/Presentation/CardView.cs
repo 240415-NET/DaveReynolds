@@ -90,6 +90,7 @@ public class CardView
                     switch (userChoice)
                     {
                         case 1:
+                            //move this to it's own method
                             //Retrive energy list
                             List<Energy> viewEnergy = CardController.ViewEnergy(signedInUser);
                             if (viewEnergy.Count() < 1)
@@ -116,6 +117,7 @@ public class CardView
 
                                 break;
                         case 2:
+                                //move this to it's own method
                                 List<Item> viewItem= CardController.ViewItem(signedInUser);
                                // var view = viewItem.Where(x=> x.owner.Equals(signedInUser));
                                     //Print list returned above

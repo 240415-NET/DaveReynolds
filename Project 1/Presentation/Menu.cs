@@ -138,7 +138,7 @@ public class Menu
     }
     public static void CardMenu(User signedInUser)
     {
-
+        Console.Clear();
         int userChoice = 0;
         bool validInput = true;
         bool exit = false;
@@ -162,7 +162,7 @@ public class Menu
                     switch (userChoice)
                     {
                         case 1:
-                            CardView.CardViewMainMenu(signedInUser);
+                            CardInput.CreateCardMenu(signedInUser);
                             break;
                         case 2:
                             Console.WriteLine("Remove cards");
@@ -194,7 +194,7 @@ public class Menu
                     Console.WriteLine("Please enter valid choice");
                 }
             } while (!validInput);
-        }
+        }Console.Clear();
 
     }
 
