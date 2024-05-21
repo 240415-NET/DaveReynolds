@@ -54,7 +54,7 @@ public class SqlUserStorage : IUserStorageRepo
                 foundUser.name = reader.GetString(1);
 
             }//once done and no more records are coming back we exit loop
-            if(String.IsNullOrEmpty(foundUser.name))
+            if (String.IsNullOrEmpty(foundUser.name))
             {
                 return null;
             }
@@ -112,6 +112,51 @@ public class SqlUserStorage : IUserStorageRepo
         connection.Close();
 
     }
+    public List<User> ReturnUsersList()
+    {
+        //just like in JSON we will create an empty user to hold potential USER we find in our DB
+        List<User> foundUsers = new List<User>();
+        //just like in INSER we will create a n SQLCOnenction
+        using SqlConnection connection = new SqlConnection(connectionString);
 
 
+        
+
+
+        connection.Open();
+        //sql query for user table
+
+        string cmdText = @" SELECT userID, userName 
+                                FROM dbo.Users";
+
+        // create our sql command object
+
+        using SqlCommand cmd = new SqlCommand(cmdText, connection);
+
+        using SqlDataReader reader = cmd.ExecuteReader();
+        
+
+        // we are going to use a while loop to read through our data coming from sql data reader
+        // and execute code until it is done reading
+
+        while (reader.Read())
+        {
+            //while we are on a row we have to save stuff if we find it
+            //when using reader.getType()methods, 
+
+
+            foundUsers.Add(new User(reader.GetInt32(0), reader.GetString(1)));
+
+        }//once done and no more records are coming back we exit loop
+          
+         connection.Close();
+        // if we get to this point and found a user, we teturn the filled out User object
+        return foundUsers;
+
+        //we will leverage finally block to close connection incase nothing is found or we catch some exception
+        
+
+
+
+    }
 }

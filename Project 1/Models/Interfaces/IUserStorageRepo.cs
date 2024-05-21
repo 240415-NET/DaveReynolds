@@ -7,4 +7,6 @@ public interface IUserStorageRepo
 
     public User FindUser(String userNameToFind);
 
+    public List<User> ReturnUsersList();
+
 }

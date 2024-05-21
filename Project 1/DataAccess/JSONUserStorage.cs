@@ -59,4 +59,9 @@ public class JSONUserStorage : IUserStorageRepo
         }
         return foundUser;
     }
+
+    List<User> IUserStorageRepo.ReturnUsersList()
+    {
+        throw new NotImplementedException();
+    }
 }

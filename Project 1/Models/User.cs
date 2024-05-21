@@ -12,6 +12,11 @@ public class User
         userId = new Random().Next(10000, 99999);
         name = _name;
     }
+    public User(int _userId, string _name)
+    {
+        userId = _userId;
+        name = _name;
+    }
 
 
 }

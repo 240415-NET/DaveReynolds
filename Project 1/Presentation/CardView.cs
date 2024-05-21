@@ -1,3 +1,4 @@
+using System.ComponentModel.Design;
 using Project1.Controllers;
 using Project1.Models;
 
@@ -35,11 +36,12 @@ public class CardView
                             //retrieve cards
                             break;
                         case 2:
-                            Console.WriteLine("view other users");
+                            UserList();
+
                             //retrieve Users
                             break;
                         case 3:
-                            Console.WriteLine("view other users cards");
+                            ViewOtherUSER();
                             //retrieve cards using other users
                             break;
                         case 4:
@@ -98,7 +100,7 @@ public class CardView
                             break;
                         case 3:
                             ViewMosterList(signedInUser);
-                            
+
                             CardController.ViewMonster(signedInUser);
                             //Print list returned above
                             break;
@@ -186,7 +188,7 @@ public class CardView
         }
     }
 
-     public static void ViewMosterList(User signedInUser)
+    public static void ViewMosterList(User signedInUser)
     {
 
         List<Monster> viewMonster = CardController.ViewMonster(signedInUser);
@@ -212,6 +214,46 @@ public class CardView
                 }
                 loopCount++;
             }
+        }
+    }
+    public static void ViewOtherUSER()
+    {
+        Console.WriteLine("Enter Username or Q to go back: ");
+        string userInput = Console.ReadLine().Trim();
+
+        if (userInput.ToLower() == "q")
+        {
+            Console.Clear();
+            return;
+        }
+
+        User userToView = UserController.UserLogin(userInput);
+        if (userToView != null)
+        {
+
+            CardViewTypeMenu(userToView);
+
+        }
+        else
+        {
+            Console.WriteLine("User not found!");
+            return;
+
+
+        }
+    }
+    public static void UserList()
+    {
+        List<User> userList = UserController.ListUsers();
+        Console.Clear();
+        int loopCount = 1;
+        foreach (User u in userList)
+        {
+
+            {
+                Console.WriteLine($"{loopCount}- {u.name}");
+            }
+            loopCount++;
         }
     }
 

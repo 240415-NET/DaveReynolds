@@ -26,13 +26,18 @@ public class UserController
         {
             return false;
         }
-        else return true;
+        else {return true;}
 
     }
 
     public static User UserLogin(string userName)
     {
         return _userData.FindUser(userName);
+    }
+
+    public static List<User> ListUsers()
+    {
+        return _userData.ReturnUsersList();   
     }
 
 
