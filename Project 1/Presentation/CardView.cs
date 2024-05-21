@@ -90,81 +90,36 @@ public class CardView
                     switch (userChoice)
                     {
                         case 1:
-                            //move this to it's own method
-                            //Retrive energy list
-                            List<Energy> viewEnergy = CardController.ViewEnergy(signedInUser);
-                            if (viewEnergy.Count() < 1)
-                            {
-                                Console.WriteLine("No Cards of that type.");
-                                Console.ReadKey();
-                            }
-                            else
-                            {
-                                //Print list returned above 
-                                Console.Clear();
-                                int loopCount = 1;
-                                foreach (Energy e in viewEnergy)
-                                {
 
-                                    {
-                                        Console.WriteLine($"{loopCount}-\n{e}");
-                                        Console.ReadKey();
-                                        Console.Clear();
-                                    }
-                                    loopCount++;
-                                }
-                            }
-
-                                break;
+                            ViewEnergyList(signedInUser);
+                            break;
                         case 2:
-                                //move this to it's own method
-                                List<Item> viewItem= CardController.ViewItem(signedInUser);
-                               // var view = viewItem.Where(x=> x.owner.Equals(signedInUser));
-                                    //Print list returned above
-                                    if (viewItem.Count() < 1)
-                            {
-                                Console.WriteLine("No Cards of that type.");
-                                Console.ReadKey();
-                            }
-                            else
-                            {
-                                //Print list returned above 
-                                Console.Clear();
-                                int loopCount = 1;
-                                foreach (Item i in viewItem)
-                                {
+                            ViewItemList(signedInUser);
+                            break;
+                        case 3:
+                            ViewMosterList(signedInUser);
+                            
+                            CardController.ViewMonster(signedInUser);
+                            //Print list returned above
+                            break;
+                        case 4:
+                            CardController.ViewEnergy(signedInUser);
+                            CardController.ViewItem(signedInUser);
+                            CardController.ViewMonster(signedInUser);
 
-                                    {
-                                        Console.WriteLine($"{loopCount}-\n{i}");
-                                        Console.ReadKey();
-                                        Console.Clear();
-                                    }
-                                    loopCount++;
-                                }  
-                            } 
-                                    break;
-                                case 3:
-                                    CardController.ViewMonster(signedInUser);
-                                    //Print list returned above
-                                    break;
-                                case 4:
-                                    CardController.ViewEnergy(signedInUser);
-                                    CardController.ViewItem(signedInUser);
-                                    CardController.ViewMonster(signedInUser);
+                            //Print lists returned above
+                            break;
+                        case 5:
+                            exit = true;
+                            break;
 
-                                    //Print lists returned above
-                                    break;
-                                case 5:
-                                    exit = true;
-                                    break;
+                        default:
+                            Console.WriteLine("Try another number");
+                            validInput = false;
+                            break;
 
-                                default:
-                                    Console.WriteLine("Try another number");
-                                    validInput = false;
-                                    break;
-
-                                }
-                            }
+                    }
+                }
                 catch (Exception ex)
                 {
                     validInput = false;
@@ -177,6 +132,88 @@ public class CardView
         }
     }
 
+    public static void ViewEnergyList(User signedInUser)
+    {
+
+        List<Energy> viewEnergy = CardController.ViewEnergy(signedInUser);
+        if (viewEnergy.Count() < 1)
+        {
+            Console.WriteLine("No Cards of that type.");
+            Console.ReadKey();
+        }
+        else
+        {
+            Console.Clear();
+            int loopCount = 1;
+            foreach (Energy e in viewEnergy)
+            {
+
+                {
+                    Console.WriteLine($"{loopCount}-\n{e}");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+                loopCount++;
+            }
+        }
+    }
+    public static void ViewItemList(User signedInUser)
+    {
+
+        List<Item> viewItem = CardController.ViewItem(signedInUser);
+        // var view = viewItem.Where(x=> x.owner.Equals(signedInUser));
+        //Print list returned above
+        if (viewItem.Count() < 1)
+        {
+            Console.WriteLine("No Cards of that type.");
+            Console.ReadKey();
+        }
+        else
+        {
+            //Print list returned above 
+            Console.Clear();
+            int loopCount = 1;
+            foreach (Item i in viewItem)
+            {
+
+                {
+                    Console.WriteLine($"{loopCount}-\n{i}");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+                loopCount++;
+            }
+        }
+    }
+
+     public static void ViewMosterList(User signedInUser)
+    {
+
+        List<Monster> viewMonster = CardController.ViewMonster(signedInUser);
+        // var view = viewItem.Where(x=> x.owner.Equals(signedInUser));
+        //Print list returned above
+        if (viewMonster.Count() < 1)
+        {
+            Console.WriteLine("No Cards of that type.");
+            Console.ReadKey();
+        }
+        else
+        {
+            //Print list returned above 
+            Console.Clear();
+            int loopCount = 1;
+            foreach (Monster i in viewMonster)
+            {
+
+                {
+                    Console.WriteLine($"{loopCount}-\n{i}");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+                loopCount++;
+            }
+        }
+    }
 
 
 }

@@ -1,3 +1,5 @@
+using System.Collections;
+
 namespace Project1.Models;
 
 public class Energy : Card
@@ -15,7 +17,7 @@ public class Energy : Card
 
     public override string ToString()
     {
-        return $"Owner: {owner}\nType: {cardType}\nArt Type: {artType}\nValue: {value}\nElement: {elementalType}";
+        return $"Owner: {owner}\nCard#;{cardId}\n Type: {cardType}\nArt Type: {artType}\nValue: {value}\nElement: {elementalType}";
     }
 
 }

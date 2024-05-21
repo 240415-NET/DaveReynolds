@@ -10,4 +10,8 @@ public class Monster : Item
     {
         elementalType = _elementalType;
     }
+    public override string ToString()
+    {
+        return $"Owner: {owner}\nCard#;{cardId}\nCard Name: {name}\nType: {cardType}\nArt Type: {artType}\nValue: {value}Elemental: {elementalType}\nRarity: {rarity}";
+    }
 }

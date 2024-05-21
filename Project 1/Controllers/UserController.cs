@@ -6,7 +6,8 @@ namespace Project1.Controllers;
 
 public class UserController
 {
-    public static IUserStorageRepo _userData = new JSONUserStorage();
+    //in order to change from JSON to SQL change below from JSON to Sql and viceversa
+    public static IUserStorageRepo _userData = new SqlUserStorage();
     public static void CreateUser(string userName)
     {
         User newUser = new User(userName);
