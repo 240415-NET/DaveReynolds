@@ -26,6 +26,9 @@ public class CardController
     {
       Monster newCard = new Monster(_owner, _cardType, _artType, _value, _cardName, _rarity, _elementalType);
       _cardData.StoreMonster(newCard);
+      Console.WriteLine(newCard.elementalType);
+      
+
     }
   }
 
@@ -44,4 +47,6 @@ public class CardController
     return _cardData.GetMonsterList(namedUser);
 
   }
+
+  public static
 }

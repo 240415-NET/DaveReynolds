@@ -31,16 +31,19 @@ public class CardView
                     switch (userChoice)
                     {
                         case 1:
+                            Console.Clear();
                             CardViewTypeMenu(signedInUser);
 
                             //retrieve cards
                             break;
                         case 2:
+                            Console.Clear();
                             UserList();
 
                             //retrieve Users
                             break;
                         case 3:
+                            Console.Clear();
                             ViewOtherUSER();
                             //retrieve cards using other users
                             break;
@@ -94,22 +97,37 @@ public class CardView
                         case 1:
 
                             ViewEnergyList(signedInUser);
+                            Console.ReadKey();
+                            Console.WriteLine("");
+                            Console.WriteLine("");
                             break;
                         case 2:
                             ViewItemList(signedInUser);
+                            Console.ReadKey();
+                            Console.WriteLine("");
+                            Console.WriteLine("");
                             break;
                         case 3:
                             ViewMosterList(signedInUser);
+                            Console.ReadKey();
+                            Console.WriteLine("");
+                            Console.WriteLine("");
 
-                            CardController.ViewMonster(signedInUser);
+
                             //Print list returned above
                             break;
                         case 4:
-                            CardController.ViewEnergy(signedInUser);
-                            CardController.ViewItem(signedInUser);
-                            CardController.ViewMonster(signedInUser);
+                            Console.WriteLine("Energy Cards");
+                            ViewEnergyList(signedInUser);
+                            Console.WriteLine("Item/Trainer Cards");
+                            ViewItemList(signedInUser);
+                            Console.WriteLine("Monster Cards");
+                            ViewMosterList(signedInUser);
+                            Console.ReadKey();
+                            Console.WriteLine("");
+                            Console.WriteLine("");
 
-                            //Print lists returned above
+
                             break;
                         case 5:
                             exit = true;
@@ -140,23 +158,24 @@ public class CardView
         List<Energy> viewEnergy = CardController.ViewEnergy(signedInUser);
         if (viewEnergy.Count() < 1)
         {
-            Console.WriteLine("No Cards of that type.");
-            Console.ReadKey();
+            Console.WriteLine("No Cards of this type.");
+
         }
         else
         {
-            Console.Clear();
+            
             int loopCount = 1;
             foreach (Energy e in viewEnergy)
             {
 
-                {
-                    Console.WriteLine($"{loopCount}-\n{e}");
-                    Console.ReadKey();
-                    Console.Clear();
-                }
+
+                Console.WriteLine($"{loopCount}. {e}");
+
+
+
                 loopCount++;
             }
+
         }
     }
     public static void ViewItemList(User signedInUser)
@@ -167,25 +186,25 @@ public class CardView
         //Print list returned above
         if (viewItem.Count() < 1)
         {
-            Console.WriteLine("No Cards of that type.");
-            Console.ReadKey();
+            Console.WriteLine("No Cards of this type.");
+
         }
         else
         {
             //Print list returned above 
-            Console.Clear();
+            
             int loopCount = 1;
             foreach (Item i in viewItem)
             {
 
                 {
-                    Console.WriteLine($"{loopCount}-\n{i}");
-                    Console.ReadKey();
-                    Console.Clear();
+                    Console.WriteLine($"{loopCount}. {i}");
+
                 }
                 loopCount++;
             }
         }
+
     }
 
     public static void ViewMosterList(User signedInUser)
@@ -197,20 +216,19 @@ public class CardView
         if (viewMonster.Count() < 1)
         {
             Console.WriteLine("No Cards of that type.");
-            Console.ReadKey();
+
         }
         else
         {
             //Print list returned above 
-            Console.Clear();
+
             int loopCount = 1;
             foreach (Monster i in viewMonster)
             {
 
                 {
-                    Console.WriteLine($"{loopCount}-\n{i}");
-                    Console.ReadKey();
-                    Console.Clear();
+                    Console.WriteLine($"{loopCount}. {i}");
+
                 }
                 loopCount++;
             }
@@ -245,17 +263,26 @@ public class CardView
     public static void UserList()
     {
         List<User> userList = UserController.ListUsers();
-        Console.Clear();
+
         int loopCount = 1;
         foreach (User u in userList)
         {
 
             {
-                Console.WriteLine($"{loopCount}- {u.name}");
+                Console.WriteLine($"{loopCount} - {u.name}");
             }
             loopCount++;
         }
     }
 
+public static void RemoveCard()
+{
+    //pull list of cards
+
+    //find card
+
+
+    //remove card
+} 
 
 }

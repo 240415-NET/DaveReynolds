@@ -2,10 +2,10 @@ namespace Project1.Models;
 
 public class User
 {
-    public int userId{get; set;}
-    public string name{get; set;}
+    public int userId { get; set; }
+    public string name { get; set; }
 
-    public User(){}
+    public User() { }
 
     public User(string _name)
     {

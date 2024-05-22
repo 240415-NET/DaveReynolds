@@ -5,13 +5,13 @@ namespace Project1.Models;
 
 public class Card
 {
-    public string owner{get; set;}
-    public int cardId{get; set;}
-    public string cardType {get; set;}
-    public string artType{get; set;} = "Normal";
-    public float value{get; set;} = 0;
+    public string owner { get; set; }
+    public int cardId { get; set; }
+    public string cardType { get; set; }
+    public string artType { get; set; } = "Normal";
+    public float value { get; set; } = 0;
     //general constrcutor
-    public Card(){}
+    public Card() { }
     //specific constructor
     public Card(string _owner, string _cardType, string _artType, float _value)
     {

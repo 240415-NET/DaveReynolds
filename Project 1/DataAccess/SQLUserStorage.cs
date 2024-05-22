@@ -120,7 +120,7 @@ public class SqlUserStorage : IUserStorageRepo
         using SqlConnection connection = new SqlConnection(connectionString);
 
 
-        
+
 
 
         connection.Open();
@@ -134,7 +134,7 @@ public class SqlUserStorage : IUserStorageRepo
         using SqlCommand cmd = new SqlCommand(cmdText, connection);
 
         using SqlDataReader reader = cmd.ExecuteReader();
-        
+
 
         // we are going to use a while loop to read through our data coming from sql data reader
         // and execute code until it is done reading
@@ -148,13 +148,13 @@ public class SqlUserStorage : IUserStorageRepo
             foundUsers.Add(new User(reader.GetInt32(0), reader.GetString(1)));
 
         }//once done and no more records are coming back we exit loop
-          
-         connection.Close();
+
+        connection.Close();
         // if we get to this point and found a user, we teturn the filled out User object
         return foundUsers;
 
         //we will leverage finally block to close connection incase nothing is found or we catch some exception
-        
+
 
 
 

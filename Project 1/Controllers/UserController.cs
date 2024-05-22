@@ -26,7 +26,7 @@ public class UserController
         {
             return false;
         }
-        else {return true;}
+        else { return true; }
 
     }
 
@@ -37,7 +37,7 @@ public class UserController
 
     public static List<User> ListUsers()
     {
-        return _userData.ReturnUsersList();   
+        return _userData.ReturnUsersList();
     }
 
 

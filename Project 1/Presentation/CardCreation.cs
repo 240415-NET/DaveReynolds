@@ -70,13 +70,16 @@ public class CardInput
         Console.WriteLine("Normal, Holo, Reverse Holo, Full Art, etc.:");
         string artType = Console.ReadLine().Trim();
         Console.WriteLine("Enter Value:");
-        do{
-            try{
+        do
+        {
+            try
+            {
                 value = Convert.ToInt32(Console.ReadLine());
                 validInput = true;
             }
 
-            catch (Exception ex){
+            catch (Exception ex)
+            {
                 validInput = false;
                 //Console.WriteLine(ex.Message);
                 //Console.WriteLine(ex.StackTrace);

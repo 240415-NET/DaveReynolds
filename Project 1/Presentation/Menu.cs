@@ -169,7 +169,7 @@ public class Menu
                             break;
                         case 3:
                             CardView.CardViewMainMenu(signedInUser);
-                            
+
                             break;
                         case 4:
                             Console.WriteLine("Trade cards");
@@ -194,7 +194,8 @@ public class Menu
                     Console.WriteLine("Please enter valid choice");
                 }
             } while (!validInput);
-        }Console.Clear();
+        }
+        Console.Clear();
 
     }
 
