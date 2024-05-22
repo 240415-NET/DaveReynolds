@@ -275,14 +275,6 @@ public class CardView
         }
     }
 
-public static void RemoveCard()
-{
-    //pull list of cards
 
-    //find card
-
-
-    //remove card
-} 
 
 }

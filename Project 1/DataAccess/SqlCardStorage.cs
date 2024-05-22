@@ -3,9 +3,25 @@ using System.Data.SqlClient;
 
 namespace Project1.Data;
 
-public class SqlItemStorage : ICardStorageRepo
+public class SqlCardStorage : ICardStorageRepo
 {
-public static string connectionString = File.ReadAllText(@"C:\Users\U0SA29\Documents\Revature\bootcamp\connstring.txt");
+    public static string connectionString = File.ReadAllText(@"C:\Users\U0SA29\Documents\Revature\bootcamp\connstring.txt");
+
+    public void UpdateEnergy(List<Energy> updatedList)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void UpdateItem(List<Item> updatedList)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void UpdateMonster(List<Monster> updatedList)
+    {
+        throw new NotImplementedException();
+    }
+
     List<Energy> ICardStorageRepo.GetEnergyList(User namedUser)
     {
         throw new NotImplementedException();

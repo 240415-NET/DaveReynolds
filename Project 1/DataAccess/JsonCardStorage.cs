@@ -76,4 +76,26 @@ public class JsonCardStorage : ICardStorageRepo
 
         return userItemlist;
     }
+
+    public void UpdateItem(List<Item> updatedList)
+    {
+
+
+        DTOStorage.SerializeItem(updatedList);
+
+    }
+    public void UpdateEnergy(List<Energy> updatedList)
+    {
+
+
+        DTOStorage.SerializeEnergy(updatedList);
+
+    }
+    public void UpdateMonster(List<Monster> updatedList)
+    {
+
+
+        DTOStorage.SerializeMonster(updatedList);
+
+    }
 }

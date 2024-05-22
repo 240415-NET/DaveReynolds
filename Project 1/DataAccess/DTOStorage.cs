@@ -159,10 +159,10 @@ public class DTOStorage
     public static CardsDTO DeserializeAllCards()
     {
         string exisitingCardsJson = File.ReadAllText(filePath);
-                //format string of text to a DTO with 3 lists of objects
-                CardsDTO allCards = JsonSerializer.Deserialize<CardsDTO>(exisitingCardsJson);
-                //create list of Object cards from part of DTO
-               return allCards;
+        //format string of text to a DTO with 3 lists of objects
+        CardsDTO allCards = JsonSerializer.Deserialize<CardsDTO>(exisitingCardsJson);
+        //create list of Object cards from part of DTO
+        return allCards;
     }
 
     public static void SerializeAllCards(CardsDTO passedCardsList)

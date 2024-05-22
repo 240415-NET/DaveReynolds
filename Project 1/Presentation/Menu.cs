@@ -165,7 +165,7 @@ public class Menu
                             CardInput.CreateCardMenu(signedInUser);
                             break;
                         case 2:
-                            Console.WriteLine("Remove cards");
+                            CardModify.RemoveCard(signedInUser);
                             break;
                         case 3:
                             CardView.CardViewMainMenu(signedInUser);

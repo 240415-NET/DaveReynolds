@@ -9,4 +9,8 @@ public interface ICardStorageRepo
     public List<Energy> GetEnergyList(User namedUser);
     public List<Monster> GetMonsterList(User namedUser);
     public List<Item> GetItemList(User namedUser);
+
+    public void UpdateEnergy(List<Energy> updatedList);
+    public void UpdateItem(List<Item> updatedList);
+    public void UpdateMonster(List<Monster> updatedList);
 }
