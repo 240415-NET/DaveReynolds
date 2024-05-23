@@ -10,8 +10,6 @@ public class JSONUserStorage : IUserStorageRepo
     public void StoreUser(User user)
     {
         //file paths begin in root directory of application
-
-
         if (File.Exists(filePath))//if json file exsists
         {
             //converts Json file to string of text

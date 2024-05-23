@@ -1,3 +1,4 @@
+
 using Project1.Controllers;
 using Project1.Models;
 
@@ -65,11 +66,6 @@ public class CardModify
                                 Console.WriteLine(monsterRemoved);
                             }
                             break;
-
-
-                            //Print list returned above
-                            break;
-
                         case 4:
                             exit = true;
                             break;
@@ -102,13 +98,101 @@ public class CardModify
     }
 
 
-    public static void ModifyCard(User namedUser)
+    public static void ModifyCard(User signedInUser)
     {
-        //pull list of cards
+        int userChoice = 0;
+        bool validInput = true;
+        bool exit = false;
 
-        //find card
+        string namedUser = SelectTradePartner();
 
+        while (!exit)
+        {
+            Console.WriteLine($"Which type of {signedInUser.name}'s cards would you like to trade with {namedUser}?");
+            Console.WriteLine("1. Energy card");
+            Console.WriteLine("2. Item card");
+            Console.WriteLine("3. Monster card");
+            Console.WriteLine("4. Go Back");
 
-        //change card
+            int cardIdToTrade = 0;
+            do
+            {
+                try
+                {
+                    userChoice = Convert.ToInt32(Console.ReadLine());
+                    validInput = true;
+                    switch (userChoice)
+                    {
+                        case 1:
+
+                            CardView.ViewEnergyList(signedInUser);
+                            Console.WriteLine("Please Enter Card # you wish to trade");
+                            cardIdToTrade = Convert.ToInt32(Console.ReadLine());
+                            Energy energyModify = CardController.ModifyEnergy(cardIdToTrade, signedInUser, namedUser);
+                            if (energyModify.cardId == cardIdToTrade)
+                            {
+                                Console.WriteLine("BELOW CARD Traded");
+                                Console.WriteLine(energyModify);
+                            }
+
+                            break;
+                        case 2:
+                            CardView.ViewItemList(signedInUser);
+                            Console.WriteLine("Please Enter Card # you wish to remove");
+                           
+                            break;
+                        case 3:
+                            CardView.ViewMosterList(signedInUser);
+                            Console.WriteLine("Please Enter Card # you wish to remove");
+                            
+                            break;
+                        case 4:
+                            exit = true;
+                            break;
+
+                        default:
+                            Console.WriteLine("Try another number");
+                            validInput = false;
+                            break;
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    validInput = false;
+
+                    //Console.WriteLine(ex.Message);
+                    //Console.WriteLine(ex.StackTrace);
+                    Console.WriteLine("Please enter valid choice");
+                    Console.WriteLine($"Which type of {signedInUser.name}'s cards would you like to trade?");
+                    Console.WriteLine("1. Energy card");
+                    Console.WriteLine("2. Item card");
+                    Console.WriteLine("3. Monster card");
+                    Console.WriteLine("4. Go Back");
+                }
+            } while (!validInput);
+        }
+
     }
-}
+    public static string SelectTradePartner()
+    {
+        bool validInput = false;
+        do
+        {
+        CardView.UserList();
+        
+        Console.WriteLine("Enter name of User you wish to trade with:");
+        string namedUser = Console.ReadLine().Trim();
+        
+        if(namedUser != null)
+        {
+            validInput = true;
+             return namedUser;
+        }
+        else Console.WriteLine("User not found, try again");
+        }
+        while(validInput);
+        return "";
+        }
+       
+    }

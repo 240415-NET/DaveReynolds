@@ -13,10 +13,7 @@ public class UserController
         User newUser = new User(userName);
         //new user is passed to data handler to save to Json file
         _userData.StoreUser(newUser);
-        Console.WriteLine("New User------");
-        Console.WriteLine($"User ID: {newUser.userId}");
-        Console.WriteLine($"User name: {newUser.name}");
-
+  
     }
 
 

@@ -163,7 +163,7 @@ public class CardView
         }
         else
         {
-            
+
             int loopCount = 1;
             foreach (Energy e in viewEnergy)
             {
@@ -192,7 +192,7 @@ public class CardView
         else
         {
             //Print list returned above 
-            
+
             int loopCount = 1;
             foreach (Item i in viewItem)
             {

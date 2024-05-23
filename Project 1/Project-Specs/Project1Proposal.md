@@ -1,5 +1,5 @@
 Project 1 proposal:
-A console app where multiple users can Store information about their collection of cards for an overpriced collectable card game.
+A console app where multiple users can Store information about their collection of brightly colored childrens cardboard for an overpriced collectable card game.
 
 Users will be able to Login to:
 

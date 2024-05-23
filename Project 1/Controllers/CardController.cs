@@ -69,7 +69,7 @@ public class CardController
       return deleteCard[0];
     }
   }
-  public static Item RemoveItem(int _cardID, User namedUser)
+public static Item RemoveItem(int _cardID, User namedUser)
   {
 
     List<Item> itemList = _cardData.GetItemList(namedUser);
@@ -117,6 +117,29 @@ public class CardController
 
 
 
+  }
+  public static Energy ModifyEnergy(int _cardID, User namedUser, string tradeName)
+  {
+
+    List<Energy> energyList = _cardData.GetEnergyList(namedUser);
+    var foundCard = from card in energyList
+                    where card.cardId == _cardID
+                    select card;
+
+    List<Energy> tradeCard = foundCard.ToList();
+    if (tradeCard.Count > 0)
+    {
+      energyList.Remove(tradeCard[0]);
+      tradeCard[0].owner = tradeName;
+      energyList.Add(tradeCard[0]);
+      _cardData.UpdateEnergy(energyList);
+      return tradeCard[0];
+    }
+    else
+    {
+      Console.WriteLine($"Card ID {_cardID} not found");
+      return tradeCard[0];
+    }
   }
 }
 

@@ -112,11 +112,6 @@ public class Menu
             Console.WriteLine($"User ID: {signedInUser.userId}");
 
             CardMenu(signedInUser);
-            //eventually go to a sub menu with options
-            //1. Add cards
-            //2. Remove cards
-            //3. view cards
-            //4. trade cards?
 
         }
         else
@@ -169,12 +164,10 @@ public class Menu
                             break;
                         case 3:
                             CardView.CardViewMainMenu(signedInUser);
-
                             break;
                         case 4:
-                            Console.WriteLine("Trade cards");
+                            CardModify.ModifyCard(signedInUser);
                             break;
-
                         case 5:
                             exit = true;
                             break;
@@ -182,13 +175,11 @@ public class Menu
                             Console.WriteLine("Try another number");
                             validInput = false;
                             break;
-
                     }
                 }
                 catch (Exception ex)
                 {
                     validInput = false;
-
                     //Console.WriteLine(ex.Message);
                     //Console.WriteLine(ex.StackTrace);
                     Console.WriteLine("Please enter valid choice");

@@ -13,6 +13,6 @@ public class Monster : Item
     public override string ToString()
     {
         //return $"Owner: {owner}\nCard#;{cardId}\nCard Name: {name}\nType: {cardType}\nArt Type: {artType}\nValue: {value}\nElemental: {elementalType}\nRarity: {rarity}";
-         return  String.Format("Owner: {0,-10}|Card #: {1,7}|Type: {2,-15}|Card Name:{3, -10} |Art Type: {4,-10}|Element: {5, -10}|Value: {6, -5:C2}",owner, cardId, cardType, name, artType, elementalType, value);
+        return String.Format("Owner: {0,-10}|Card #: {1,7}|Type: {2,-15}|Card Name:{3, -10} |Art Type: {4,-10}|Element: {5, -10}|Value: {6, -5:C2}", owner, cardId, cardType, name, artType, elementalType, value);
     }
 }
