@@ -138,12 +138,26 @@ public class CardModify
                             break;
                         case 2:
                             CardView.ViewItemList(signedInUser);
-                            Console.WriteLine("Please Enter Card # you wish to remove");
+                            Console.WriteLine("Please Enter Card # you wish to trade");
+                            cardIdToTrade = Convert.ToInt32(Console.ReadLine());
+                            Item itemModify = CardController.ModifyItem(cardIdToTrade, signedInUser, namedUser);
+                            if (itemModify.cardId == cardIdToTrade)
+                            {
+                                Console.WriteLine("BELOW CARD Traded");
+                                Console.WriteLine(itemModify);
+                            }
                            
                             break;
                         case 3:
                             CardView.ViewMosterList(signedInUser);
-                            Console.WriteLine("Please Enter Card # you wish to remove");
+                            Console.WriteLine("Please Enter Card # you wish to trade");
+                            cardIdToTrade = Convert.ToInt32(Console.ReadLine());
+                            Item monsterModify = CardController.ModifyMonster(cardIdToTrade, signedInUser, namedUser);
+                            if (monsterModify.cardId == cardIdToTrade)
+                            {
+                                Console.WriteLine("BELOW CARD Traded");
+                                Console.WriteLine(monsterModify);
+                            }
                             
                             break;
                         case 4:

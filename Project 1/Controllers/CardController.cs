@@ -141,5 +141,53 @@ public static Item RemoveItem(int _cardID, User namedUser)
       return tradeCard[0];
     }
   }
+    public static Item ModifyItem(int _cardID, User namedUser, string tradeName)
+  {
+
+    List<Item> itemList = _cardData.GetItemList(namedUser);
+    var foundCard = from card in itemList
+                    where card.cardId == _cardID
+                    select card;
+
+    List<Item> tradeCard = foundCard.ToList();
+    if (tradeCard.Count > 0)
+    {
+      itemList.Remove(tradeCard[0]);
+      tradeCard[0].owner = tradeName;
+      itemList.Add(tradeCard[0]);
+      _cardData.UpdateItem(itemList);
+      return tradeCard[0];
+    }
+    else
+    {
+      Console.WriteLine($"Card ID {_cardID} not found");
+      return tradeCard[0];
+    }
+  }
+
+  public static Monster ModifyMonster(int _cardID, User namedUser, string tradeName)
+  {
+
+    List<Monster> monsterList = _cardData.GetMonsterList(namedUser);
+    var foundCard = from card in monsterList
+                    where card.cardId == _cardID
+                    select card;
+
+    List<Monster> tradeCard = foundCard.ToList();
+    if (tradeCard.Count > 0)
+    {
+      monsterList.Remove(tradeCard[0]);
+      tradeCard[0].owner = tradeName;
+      monsterList.Add(tradeCard[0]);
+      _cardData.UpdateMonster(monsterList);
+      return tradeCard[0];
+    }
+    else
+    {
+      Console.WriteLine($"Card ID {_cardID} not found");
+      return tradeCard[0];
+    }
+  }  
+  
 }
 

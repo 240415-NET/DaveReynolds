@@ -18,7 +18,7 @@ public class Energy : Card
     public override string ToString()
     {
         //r2eturn $"Owner: {owner}\nCard#;{cardId}\n Type: {cardType}\nArt Type: {artType}\nValue: {value}\nElement: {elementalType}";
-        return String.Format("Owner: {0,-10}|Card #: {1,7}|Type: {2,-15} |Art Type: {3,-5}|Element: {4, -5}|Value: {5, -5:C2}", owner, cardId, cardType, artType, elementalType, value);
+        return String.Format("Owner: {0,-10}|Card #: {1,7}|Type: {2,-13} |Art Type: {3,-5}|Element: {4, -5}|Value: {5, -5:C2}", owner, cardId, cardType, artType, elementalType, value);
     }
 
 }
