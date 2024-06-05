@@ -1,25 +1,32 @@
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+
 namespace TrackMyStuff.API.Models;
 
 public class Item
 {
-    public Guid userId {get; set;}
-    public Guid itemId {get; set;}// = Guid.NewGuid();
-    public string category {get; set;}
-    public double originalCost {get; set;}
-    public DateTime purchaseDate {get; set;}
-    public string description {get; set;}
+    //public Guid userId {get; set;}
+    public User user { get; set; } = new();
+    //here we are using 
+    [Key]
+    public Guid itemId { get; set; }// = Guid.NewGuid();
+    public string category { get; set; }
+    public double originalCost { get; set; }
+    public DateTime purchaseDate { get; set; }
+    public string description { get; set; }
 
     //Constructors 
     public Item() { }
-    
-    public Item(Guid _userId, string _category, double _originalCost, 
-        DateTime _purchaseDate, string _description) {
-            userId = _userId;
-            itemId = Guid.NewGuid();
-            category = _category;
-            originalCost = _originalCost;
-            purchaseDate = _purchaseDate;
-            description = _description;
+
+    public Item(string _category, double _originalCost,
+        DateTime _purchaseDate, string _description)
+    {
+
+        itemId = Guid.NewGuid();
+        category = _category;
+        originalCost = _originalCost;
+        purchaseDate = _purchaseDate;
+        description = _description;
     }
 
     public override string ToString()
@@ -28,7 +35,7 @@ public class Item
     }
     public string AbbrToString()
     {
-        return String.Format("Description: {0,-25}   Purchase Date: {1,10:d}   Original Cost: {2,-12:C2}",description,purchaseDate,originalCost);
+        return String.Format("Description: {0,-25}   Purchase Date: {1,10:d}   Original Cost: {2,-12:C2}", description, purchaseDate, originalCost);
     }
 
 }

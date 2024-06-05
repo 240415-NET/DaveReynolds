@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 //all of this is done when we run our dotnet run our webAPI
 
 var builder = WebApplication.CreateBuilder(args);
-string connectionString = File.ReadAllText(@"C:\Users\U0SA29\Documents\Revature\bootcamp\trainer-code\TrackMyStuffConsole\TrackMyStuffConsole\TrackMyStuff.sln");
+string connectionString = File.ReadAllText(@"C:\Users\U0SA29\Documents\Revature\bootcamp\connstringTMS.txt");
 
 // Add services to the container. - these below came in from template
 //by default you will have AddControllers(), AddEndpointsApiExplorer(), AddSwaggerGen()
@@ -42,6 +42,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+//Editing our apps CORS settings to allow us to DELETE
+app.UseCors(policy => policy.AllowAnyMethod());
 
 app.UseAuthorization();
 

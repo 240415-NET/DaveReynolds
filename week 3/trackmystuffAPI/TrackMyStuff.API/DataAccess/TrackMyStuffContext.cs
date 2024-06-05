@@ -18,6 +18,11 @@ public class TrackMyStuffContext : DbContext
     //Constructor
     public TrackMyStuffContext() { }
 
+    //in order to create a migration we need a contstructor that accepts a DbContextOptions and
+    //passes it to the base constructor that comes in from the DbContext parentClass
+
+    public TrackMyStuffContext(DbContextOptions options) :base (options) {}
+
     //in order to tweek EFCORE behavoir/assumptions of what we want in out database
     //we need to explicitly override a method that comes from that DBContext base c;ass called OnModelCreating
 
@@ -38,6 +43,10 @@ public class TrackMyStuffContext : DbContext
         modelBuilder.Entity<User>()
             .ToTable("Users");
 
+        
+        //modelBuilder.Entity<User>()
+               // .HasMany(e =>e.items);
+                
 
     }
 

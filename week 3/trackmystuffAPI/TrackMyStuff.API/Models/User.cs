@@ -1,4 +1,6 @@
 //add code from console app
+using System.ComponentModel.DataAnnotations;
+
 namespace TrackMyStuff.API.Models;
 
 public class User
@@ -11,6 +13,7 @@ public class User
 
     //We are using a prebuilt data type from the default System library to generate a truly unique
     //userId
+    [Key]
     public Guid userId { get; set; }
     public string userName { get; set; }
     //users have many Items - each one belongs to one user
